@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GitHub Portfolio · dev</title>
+  <!-- Font Awesome for icons (free) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #0d1117;
+      color: #c9d1d9;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      padding: 2rem 1.5rem;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .portfolio {
+      max-width: 1200px;
+      width: 100%;
+    }
+
+    /* ===== HEADER / PROFILE ===== */
+    .profile {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 2rem;
+      margin-bottom: 3rem;
+      background: #161b22;
+      border-radius: 24px;
+      padding: 2rem 2.5rem;
+      border: 1px solid #30363d;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+    }
+
+    .avatar {
+      flex-shrink: 0;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #58a6ff, #1f6feb);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3.8rem;
+      font-weight: 600;
+      color: #0d1117;
+      box-shadow: 0 0 0 4px #30363d;
+    }
+
+    .profile-info h1 {
+      font-size: 2.4rem;
+      font-weight: 600;
+      letter-spacing: -0.5px;
+      background: linear-gradient(to right, #f0f6fc, #b1d4ff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 0.25rem;
+    }
+
+    .profile-info .handle {
+      color: #8b949e;
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .profile-info .handle i {
+      color: #58a6ff;
+      margin-right: 6px;
+    }
+
+    .profile-info .bio {
+      color: #c9d1d9;
+      max-width: 550px;
+      margin: 0.5rem 0 1rem;
+      font-size: 1.05rem;
+    }
+
+    .social-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .social-links a {
+      color: #8b949e;
+      background: #21262d;
+      padding: 0.4rem 1rem;
+      border-radius: 30px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid #30363d;
+      transition: all 0.2s ease;
+    }
+
+    .social-links a:hover {
+      color: #f0f6fc;
+      background: #30363d;
+      border-color: #58a6ff;
+      transform: translateY(-2px);
+    }
+
+    .social-links a i {
+      font-size: 1rem;
+    }
+
+    /* ===== SECTION TITLES ===== */
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.6rem;
+      font-weight: 500;
+      margin: 2.8rem 0 1.5rem 0;
+      color: #f0f6fc;
+      border-bottom: 1px solid #30363d;
+      padding-bottom: 0.6rem;
+    }
+
+    .section-title i {
+      color: #58a6ff;
+      font-size: 1.4rem;
+    }
+
+    /* ===== PROJECT CARDS ===== */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.8rem;
+    }
+
+    .project-card {
+      background: #161b22;
+      border-radius: 18px;
+      padding: 1.6rem 1.8rem;
+      border: 1px solid #30363d;
+      transition: transform 0.2s ease, border-color 0.2s, box-shadow 0.2s;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-card:hover {
+      transform: translateY(-6px);
+      border-color: #58a6ff;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.5);
+    }
+
+    .project-card .repo-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 0.4rem;
+    }
+
+    .project-card .repo-header i {
+      color: #58a6ff;
+      font-size: 1.2rem;
+    }
+
+    .project-card h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #58a6ff;
+      letter-spacing: -0.3px;
+    }
+
+    .project-card .repo-desc {
+      color: #c9d1d9;
+      font-size: 0.95rem;
+      margin: 0.5rem 0 1rem;
+      flex: 1;
+    }
+
+    .project-card .repo-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem 1.5rem;
+      font-size: 0.85rem;
+      color: #8b949e;
+      margin-top: 0.25rem;
+      border-top: 1px solid #21262d;
+      padding-top: 0.9rem;
+    }
+
+    .project-card .repo-meta span {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .project-card .repo-meta i {
+      color: #8b949e;
+      width: 16px;
+    }
+
+    .project-card .repo-meta .lang-color {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      margin-right: 4px;
+    }
+
+    .card-links {
+      margin-top: 1rem;
+      display: flex;
+      gap: 1.2rem;
+    }
+
+    .card-links a {
+      color: #8b949e;
+      text-decoration: none;
+      font-size: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: color 0.2s;
+    }
+
+    .card-links a:hover {
+      color: #58a6ff;
+    }
+
+    /* ===== SKILLS / TECH ===== */
+    .skills-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem 1.2rem;
+      background: #161b22;
+      border-radius: 40px;
+      padding: 1.2rem 2rem;
+      border: 1px solid #30363d;
+      margin-top: 0.5rem;
+    }
+
+    .skill-tag {
+      background: #21262d;
+      padding: 0.3rem 1rem;
+      border-radius: 30px;
+      font-size: 0.9rem;
+      font-weight: 450;
+      color: #c9d1d9;
+      border: 1px solid #30363d;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .skill-tag i {
+      color: #58a6ff;
+      font-size: 0.9rem;
+    }
+
+    .skill-tag.highlight {
+      background: #1f6feb20;
+      border-color: #1f6feb50;
+      color: #b1d4ff;
+    }
+
+    /* ===== FOOTER ===== */
+    .footer-note {
+      margin-top: 4rem;
+      text-align: center;
+      color: #484f58;
+      border-top: 1px solid #21262d;
+      padding-top: 2rem;
+      font-size: 0.9rem;
+      letter-spacing: 0.3px;
+    }
+
+    .footer-note i {
+      color: #da3633;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 700px) {
+      .profile {
+        flex-direction: column;
+        text-align: center;
+        padding: 1.8rem 1.2rem;
+      }
+
+      .profile-info .bio {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .social-links {
+        justify-content: center;
+      }
+
+      .avatar {
+        width: 100px;
+        height: 100px;
+        font-size: 3rem;
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .skills-wrapper {
+        justify-content: center;
+        padding: 1rem 1.2rem;
+      }
+
+      .section-title {
+        font-size: 1.4rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      body { padding: 1rem 0.8rem; }
+      .profile { padding: 1.5rem 1rem; }
+      .project-card { padding: 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="portfolio">
+
+    <!-- ===== PROFILE ===== -->
+    <header class="profile">
+      <div class="avatar">
+        <i class="fab fa-github-alt" style="color: #0d1117; font-size: 3.5rem;"></i>
+      </div>
+      <div class="profile-info">
+        <h1>Alex Rivera</h1>
+        <div class="handle">
+          <i class="fab fa-github"></i> @alexdev · <i class="fas fa-map-pin"></i> remote
+        </div>
+        <p class="bio">
+          Full‑stack developer · open source enthusiast · building tools that make dev life easier.
+          Currently exploring Rust and WebAssembly.
+        </p>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-github"></i> GitHub</a>
+          <a href="#"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+          <a href="#"><i class="fab fa-twitter"></i> Twitter</a>
+          <a href="#"><i class="fas fa-envelope"></i> Email</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- ===== PROJECTS ===== -->
+    <h2 class="section-title">
+      <i class="fas fa-code-fork"></i> featured projects
+    </h2>
+
+    <div class="projects-grid">
+      <!-- card 1 -->
+      <div class="project-card">
+        <div class="repo-header">
+          <i class="fas fa-book-open"></i>
+          <h3>astro‑dashboard</h3>
+        </div>
+        <p class="repo-desc">
+          Real‑time analytics dashboard built with Astro, Tailwind, and Chart.js. 
+          Lightweight, fast, and fully responsive.
+        </p>
+        <div class="repo-meta">
+          <span><i class="fas fa-star"></i> 78</span>
+          <span><i class="fas fa-code-branch"></i> 14</span>
+          <span>
+            <span class="lang-color" style="background:#3178c6;"></span> TypeScript
+          </span>
+        </div>
+        <div class="card-links">
+          <a href="#"><i class="fab fa-github"></i> repo</a>
+          <a href="#"><i class="fas fa-external-link-alt"></i> demo</a>
+        </div>
+      </div>
+
+      <!-- card 2 -->
+      <div class="project-card">
+        <div class="repo-header">
+          <i class="fas fa-terminal"></i>
+          <h3>git‑snap</h3>
+        </div>
+        <p class="repo-desc">
+          CLI tool to create lightweight, searchable snapshots of your Git repos. 
+          Saves disk space and speeds up backups.
+        </p>
+        <div class="repo-meta">
+          <span><i class="fas fa-star"></i> 43</span>
+          <span><i class="fas fa-code-branch"></i> 6</span>
+          <span>
+            <span class="lang-color" style="background:#a6128d;"></span> Rust
+          </span>
+        </div>
+        <div class="card-links">
+          <a href="#"><i class="fab fa-github"></i> repo</a>
+          <a href="#"><i class="fas fa-file-alt"></i> docs</a>
+        </div>
+      </div>
+
+      <!-- card 3 -->
+      <div class="project-card">
+        <div class="repo-header">
+          <i class="fas fa-cloud-sun"></i>
+          <h3>weather‑pulse</h3>
+        </div>
+        <p class="repo-desc">
+          Minimal weather app with live radar, 7‑day forecast, and Air Quality Index. 
+          Built with React and OpenWeatherMap API.
+        </p>
+        <div class="repo-meta">
+          <span><i class="fas fa-star"></i> 112</span>
+          <span><i class="fas fa-code-branch"></i> 21</span>
+          <span>
+            <span class="lang-color" style="background:#61dafb;"></span> JavaScript
+          </span>
+        </div>
+        <div class="card-links">
+          <a href="#"><i class="fab fa-github"></i> repo</a>
+          <a href="#"><i class="fas fa-external-link-alt"></i> live</a>
+        </div>
+      </div>
+
+      <!-- card 4 -->
+      <div class="project-card">
+        <div class="repo-header">
+          <i class="fas fa-database"></i>
+          <h3>query‑kit</h3>
+        </div>
+        <p class="repo-desc">
+          Lightweight ORM for Node.js with native PostgreSQL support. 
+          Focus on type safety and performance.
+        </p>
+        <div class="repo-meta">
+          <span><i class="fas fa-star"></i> 27</span>
+          <span><i class="fas fa-code-branch"></i> 4</span>
+          <span>
+            <span class="lang-color" style="background:#3178c6;"></span> TypeScript
+          </span>
+        </div>
+        <div class="card-links">
+          <a href="#"><i class="fab fa-github"></i> repo</a>
+          <a href="#"><i class="fas fa-book"></i> guide</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== SKILLS / TECH STACK ===== -->
+    <h2 class="section-title" style="margin-top: 3.2rem;">
+      <i class="fas fa-cog"></i> toolchain & skills
+    </h2>
+
+    <div class="skills-wrapper">
+      <span class="skill-tag"><i class="fab fa-js"></i> JavaScript</span>
+      <span class="skill-tag highlight"><i class="fab fa-react"></i> React</span>
+      <span class="skill-tag"><i class="fab fa-node"></i> Node.js</span>
+      <span class="skill-tag"><i class="fab fa-python"></i> Python</span>
+      <span class="skill-tag"><i class="fas fa-database"></i> PostgreSQL</span>
+      <span class="skill-tag"><i class="fab fa-docker"></i> Docker</span>
+      <span class="skill-tag"><i class="fas fa-cloud"></i> AWS</span>
+      <span class="skill-tag"><i class="fab fa-github"></i> GitHub Actions</span>
+      <span class="skill-tag"><i class="fas fa-code"></i> Rust</span>
+      <span class="skill-tag"><i class="fas fa-terminal"></i> Bash</span>
+    </div>
+
+    <!-- ===== PINNED / CONTRIBUTIONS (extra touch) ===== -->
+    <div style="margin-top: 2.8rem; display: flex; flex-wrap: wrap; gap: 1.5rem; background: #161b22; border-radius: 20px; padding: 1.5rem 2rem; border: 1px solid #30363d;">
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <i class="fas fa-users" style="color: #58a6ff; font-size: 1.6rem;"></i>
+        <div>
+          <div style="font-size: 1.1rem; font-weight: 500;">open source</div>
+          <div style="color: #8b949e; font-size: 0.9rem;">contributor to 6+ projects</div>
+        </div>
+      </div>
+      <div style="display: flex; align-items: center; gap: 12px; margin-left: auto;">
+        <i class="fas fa-trophy" style="color: #e3b341; font-size: 1.6rem;"></i>
+        <div>
+          <div style="font-size: 1.1rem; font-weight: 500;">GitHub Stars</div>
+          <div style="color: #8b949e; font-size: 0.9rem;">280+ across repos</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+    <div class="footer-note">
+      <i class="fas fa-code"></i> built with <i class="fas fa-heart" style="color: #da3633;"></i> · 
+      <i class="fab fa-github"></i> portfolio template · 2026
+    </div>
+  </div>
+</body>
+</html>

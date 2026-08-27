@@ -3,9 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GitHub Portfolio · dev</title>
-  <!-- Font Awesome for icons (free) -->
+  <title>Akhilesh Malthi · AI Engineer</title>
+  <!-- Font Awesome 6 (free) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- Google Font: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -14,491 +18,520 @@
     }
 
     body {
-      background: #0d1117;
-      color: #c9d1d9;
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background-color: #0a0a0f;
+      color: #e8edf5;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       line-height: 1.6;
       padding: 2rem 1.5rem;
-      min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
     }
 
-    .portfolio {
-      max-width: 1200px;
+    .container {
+      max-width: 1100px;
       width: 100%;
     }
 
-    /* ===== HEADER / PROFILE ===== */
-    .profile {
+    /* ---------- header / hero ---------- */
+    .hero {
       display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 2rem;
-      margin-bottom: 3rem;
-      background: #161b22;
-      border-radius: 24px;
-      padding: 2rem 2.5rem;
-      border: 1px solid #30363d;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+      flex-direction: column;
+      align-items: flex-start;
+      margin-bottom: 3.5rem;
+      border-bottom: 1px solid #23232e;
+      padding-bottom: 2.5rem;
     }
 
-    .avatar {
-      flex-shrink: 0;
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #58a6ff, #1f6feb);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 3.8rem;
-      font-weight: 600;
-      color: #0d1117;
-      box-shadow: 0 0 0 4px #30363d;
+    .hero .badge {
+      background: #1a1a2b;
+      color: #a0aec0;
+      font-size: 0.8rem;
+      font-weight: 500;
+      padding: 0.3rem 1rem;
+      border-radius: 40px;
+      border: 1px solid #2d2d42;
+      margin-bottom: 1.2rem;
+      display: inline-block;
+      letter-spacing: 0.5px;
     }
 
-    .profile-info h1 {
-      font-size: 2.4rem;
-      font-weight: 600;
-      letter-spacing: -0.5px;
-      background: linear-gradient(to right, #f0f6fc, #b1d4ff);
+    .hero h1 {
+      font-size: 4rem;
+      font-weight: 700;
+      line-height: 1;
+      margin-bottom: 0.2rem;
+      background: linear-gradient(135deg, #f0f4ff 0%, #a0c4ff 100%);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
-      margin-bottom: 0.25rem;
+      letter-spacing: -2px;
     }
 
-    .profile-info .handle {
-      color: #8b949e;
-      font-size: 1.1rem;
-      margin-bottom: 0.5rem;
+    .hero .subhead {
+      font-size: 1.8rem;
+      font-weight: 400;
+      color: #b0bbd4;
+      margin-bottom: 1rem;
+      letter-spacing: -0.5px;
     }
 
-    .profile-info .handle i {
-      color: #58a6ff;
-      margin-right: 6px;
+    .hero .tagline {
+      font-size: 1.15rem;
+      color: #8e99b3;
+      max-width: 600px;
+      margin-bottom: 1.8rem;
+      border-left: 3px solid #4f7fff;
+      padding-left: 1.2rem;
     }
 
-    .profile-info .bio {
-      color: #c9d1d9;
-      max-width: 550px;
-      margin: 0.5rem 0 1rem;
-      font-size: 1.05rem;
-    }
-
-    .social-links {
+    .hero .cta-group {
       display: flex;
       flex-wrap: wrap;
       gap: 1rem;
-      margin-top: 0.5rem;
+      align-items: center;
     }
 
-    .social-links a {
-      color: #8b949e;
-      background: #21262d;
-      padding: 0.4rem 1rem;
-      border-radius: 30px;
-      text-decoration: none;
-      font-size: 0.9rem;
-      font-weight: 500;
+    .btn-primary {
+      background: #4f7fff;
+      color: #fff;
+      border: none;
+      padding: 0.7rem 2rem;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: default;
+      box-shadow: 0 4px 14px rgba(79, 127, 255, 0.25);
+      transition: 0.2s;
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      border: 1px solid #30363d;
-      transition: all 0.2s ease;
+      gap: 10px;
+      text-decoration: none;
     }
 
-    .social-links a:hover {
-      color: #f0f6fc;
-      background: #30363d;
-      border-color: #58a6ff;
-      transform: translateY(-2px);
-    }
-
-    .social-links a i {
+    .btn-primary i {
       font-size: 1rem;
     }
 
-    /* ===== SECTION TITLES ===== */
+    .btn-outline {
+      background: transparent;
+      color: #b0bbd4;
+      border: 1px solid #2d2d42;
+      padding: 0.7rem 1.8rem;
+      border-radius: 40px;
+      font-weight: 500;
+      font-size: 0.95rem;
+      cursor: default;
+      transition: 0.2s;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .status-box {
+      margin-top: 2rem;
+      background: #12121c;
+      border-radius: 60px;
+      padding: 0.7rem 1.8rem;
+      border: 1px solid #2a2a3e;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .status-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #4cdf8b;
+      display: inline-block;
+      box-shadow: 0 0 8px #4cdf8b88;
+    }
+
+    .status-box span {
+      color: #b0bbd4;
+      font-size: 0.95rem;
+    }
+
+    .status-box strong {
+      color: #e8edf5;
+      font-weight: 500;
+    }
+
+    .edu {
+      margin-top: 1rem;
+      font-size: 0.95rem;
+      color: #8e99b3;
+    }
+
+    .edu i {
+      color: #4f7fff;
+      margin-right: 8px;
+    }
+
+    /* ---------- section titles ---------- */
     .section-title {
+      font-size: 1.8rem;
+      font-weight: 600;
+      letter-spacing: -0.5px;
+      margin: 3.5rem 0 1.8rem 0;
+      border-bottom: 1px solid #23232e;
+      padding-bottom: 0.6rem;
       display: flex;
       align-items: center;
-      gap: 10px;
-      font-size: 1.6rem;
-      font-weight: 500;
-      margin: 2.8rem 0 1.5rem 0;
-      color: #f0f6fc;
-      border-bottom: 1px solid #30363d;
-      padding-bottom: 0.6rem;
+      gap: 12px;
     }
 
     .section-title i {
-      color: #58a6ff;
-      font-size: 1.4rem;
+      color: #4f7fff;
+      font-size: 1.5rem;
     }
 
-    /* ===== PROJECT CARDS ===== */
+    /* ---------- projects ---------- */
     .projects-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 1.8rem;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 2rem;
     }
 
     .project-card {
-      background: #161b22;
-      border-radius: 18px;
-      padding: 1.6rem 1.8rem;
-      border: 1px solid #30363d;
-      transition: transform 0.2s ease, border-color 0.2s, box-shadow 0.2s;
+      background: #12121c;
+      border-radius: 24px;
+      padding: 1.8rem 1.8rem 1.5rem;
+      border: 1px solid #23232e;
+      transition: transform 0.2s ease, border-color 0.2s;
       display: flex;
       flex-direction: column;
     }
 
     .project-card:hover {
       transform: translateY(-6px);
-      border-color: #58a6ff;
-      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.5);
+      border-color: #4f7fff55;
     }
 
-    .project-card .repo-header {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 0.4rem;
-    }
-
-    .project-card .repo-header i {
-      color: #58a6ff;
-      font-size: 1.2rem;
+    .project-card .p-icon {
+      font-size: 1.8rem;
+      color: #4f7fff;
+      margin-bottom: 0.5rem;
     }
 
     .project-card h3 {
       font-size: 1.25rem;
       font-weight: 600;
-      color: #58a6ff;
-      letter-spacing: -0.3px;
+      margin-bottom: 0.5rem;
+      color: #f0f4ff;
     }
 
-    .project-card .repo-desc {
-      color: #c9d1d9;
+    .project-card p {
+      color: #aab3cc;
       font-size: 0.95rem;
-      margin: 0.5rem 0 1rem;
       flex: 1;
+      margin-bottom: 1rem;
     }
 
-    .project-card .repo-meta {
+    .project-tags {
       display: flex;
       flex-wrap: wrap;
-      gap: 1rem 1.5rem;
-      font-size: 0.85rem;
-      color: #8b949e;
-      margin-top: 0.25rem;
-      border-top: 1px solid #21262d;
-      padding-top: 0.9rem;
+      gap: 0.5rem;
+      margin: 0.5rem 0 0.2rem;
     }
 
-    .project-card .repo-meta span {
+    .project-tags span {
+      background: #1e1e2e;
+      color: #b0bbd4;
+      font-size: 0.7rem;
+      font-weight: 500;
+      padding: 0.2rem 0.8rem;
+      border-radius: 30px;
+      border: 1px solid #2d2d42;
+      letter-spacing: 0.3px;
+    }
+
+    /* ---------- experience ---------- */
+    .exp-list {
       display: flex;
-      align-items: center;
-      gap: 5px;
-    }
-
-    .project-card .repo-meta i {
-      color: #8b949e;
-      width: 16px;
-    }
-
-    .project-card .repo-meta .lang-color {
-      display: inline-block;
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      margin-right: 4px;
-    }
-
-    .card-links {
-      margin-top: 1rem;
-      display: flex;
+      flex-direction: column;
       gap: 1.2rem;
     }
 
-    .card-links a {
-      color: #8b949e;
-      text-decoration: none;
-      font-size: 0.9rem;
-      display: inline-flex;
+    .exp-item {
+      background: #12121c;
+      border-radius: 18px;
+      padding: 1.2rem 1.8rem;
+      border: 1px solid #23232e;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
       align-items: center;
-      gap: 6px;
-      transition: color 0.2s;
     }
 
-    .card-links a:hover {
-      color: #58a6ff;
+    .exp-item .exp-left {
+      display: flex;
+      flex-direction: column;
     }
 
-    /* ===== SKILLS / TECH ===== */
+    .exp-item .exp-title {
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: #f0f4ff;
+    }
+
+    .exp-item .exp-org {
+      color: #8e99b3;
+      font-size: 0.95rem;
+    }
+
+    .exp-item .exp-date {
+      color: #6a7490;
+      font-size: 0.85rem;
+      background: #1a1a2b;
+      padding: 0.2rem 1rem;
+      border-radius: 40px;
+      border: 1px solid #2a2a3e;
+    }
+
+    /* ---------- skills ---------- */
     .skills-wrapper {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.8rem 1.2rem;
-      background: #161b22;
-      border-radius: 40px;
-      padding: 1.2rem 2rem;
-      border: 1px solid #30363d;
-      margin-top: 0.5rem;
+      gap: 0.7rem 1rem;
+      background: #12121c;
+      border-radius: 50px;
+      padding: 1.5rem 2rem;
+      border: 1px solid #23232e;
     }
 
     .skill-tag {
-      background: #21262d;
-      padding: 0.3rem 1rem;
-      border-radius: 30px;
-      font-size: 0.9rem;
-      font-weight: 450;
-      color: #c9d1d9;
-      border: 1px solid #30363d;
+      background: #1a1a2b;
+      color: #c8d2e8;
+      padding: 0.3rem 1.2rem;
+      border-radius: 40px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      border: 1px solid #2d2d42;
       display: inline-flex;
       align-items: center;
       gap: 6px;
     }
 
     .skill-tag i {
-      color: #58a6ff;
+      color: #4f7fff;
       font-size: 0.9rem;
     }
 
     .skill-tag.highlight {
-      background: #1f6feb20;
-      border-color: #1f6feb50;
-      color: #b1d4ff;
+      background: #1f2a4a;
+      border-color: #4f7fff66;
+      color: #b8ccff;
     }
 
-    /* ===== FOOTER ===== */
-    .footer-note {
+    /* ---------- CTA / footer ---------- */
+    .cta-box {
       margin-top: 4rem;
+      background: #12121c;
+      border-radius: 30px;
+      padding: 2.5rem 2.8rem;
+      border: 1px solid #23232e;
       text-align: center;
-      color: #484f58;
-      border-top: 1px solid #21262d;
+    }
+
+    .cta-box h2 {
+      font-size: 1.8rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .cta-box p {
+      color: #aab3cc;
+      margin-bottom: 1.8rem;
+      font-size: 1.05rem;
+    }
+
+    .cta-box .btn-primary {
+      background: #4f7fff;
+      padding: 0.8rem 2.2rem;
+      font-size: 1rem;
+      cursor: default;
+    }
+
+    .cta-box .btn-primary i {
+      margin-right: 8px;
+    }
+
+    .footer-note {
+      margin-top: 3.5rem;
+      text-align: center;
+      color: #505a72;
+      font-size: 0.85rem;
+      border-top: 1px solid #1e1e2e;
       padding-top: 2rem;
-      font-size: 0.9rem;
-      letter-spacing: 0.3px;
     }
 
-    .footer-note i {
-      color: #da3633;
-    }
-
-    /* ===== RESPONSIVE ===== */
+    /* ---------- responsive ---------- */
     @media (max-width: 700px) {
-      .profile {
-        flex-direction: column;
-        text-align: center;
-        padding: 1.8rem 1.2rem;
-      }
-
-      .profile-info .bio {
-        margin-left: auto;
-        margin-right: auto;
-      }
-
-      .social-links {
-        justify-content: center;
-      }
-
-      .avatar {
-        width: 100px;
-        height: 100px;
-        font-size: 3rem;
-      }
-
-      .projects-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .skills-wrapper {
-        justify-content: center;
-        padding: 1rem 1.2rem;
-      }
-
-      .section-title {
-        font-size: 1.4rem;
-      }
+      .hero h1 { font-size: 3rem; }
+      .hero .subhead { font-size: 1.4rem; }
+      .hero .tagline { font-size: 1rem; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .exp-item { flex-direction: column; align-items: flex-start; gap: 0.3rem; }
+      .cta-box { padding: 1.8rem; }
+      .skills-wrapper { justify-content: center; padding: 1.2rem; }
     }
 
     @media (max-width: 480px) {
       body { padding: 1rem 0.8rem; }
-      .profile { padding: 1.5rem 1rem; }
-      .project-card { padding: 1.2rem; }
+      .hero h1 { font-size: 2.5rem; }
+      .status-box { flex-wrap: wrap; }
     }
   </style>
 </head>
 <body>
-  <div class="portfolio">
+<div class="container">
 
-    <!-- ===== PROFILE ===== -->
-    <header class="profile">
-      <div class="avatar">
-        <i class="fab fa-github-alt" style="color: #0d1117; font-size: 3.5rem;"></i>
-      </div>
-      <div class="profile-info">
-        <h1>Alex Rivera</h1>
-        <div class="handle">
-          <i class="fab fa-github"></i> @alexdev · <i class="fas fa-map-pin"></i> remote
-        </div>
-        <p class="bio">
-          Full‑stack developer · open source enthusiast · building tools that make dev life easier.
-          Currently exploring Rust and WebAssembly.
-        </p>
-        <div class="social-links">
-          <a href="#"><i class="fab fa-github"></i> GitHub</a>
-          <a href="#"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
-          <a href="#"><i class="fab fa-twitter"></i> Twitter</a>
-          <a href="#"><i class="fas fa-envelope"></i> Email</a>
-        </div>
-      </div>
-    </header>
+  <!-- ===== HERO ===== -->
+  <header class="hero">
+    <div class="badge"><i class="fas fa-robot" style="margin-right: 6px;"></i> AI Engineer</div>
+    <h1>Akhilesh<br>Malthi</h1>
+    <div class="subhead">building intelligent systems</div>
+    <div class="tagline">
+      Engineering AI systems that augment human intelligence.
+    </div>
+    <div class="cta-group">
+      <a href="#" class="btn-primary"><i class="fas fa-eye"></i> View My Work</a>
+      <a href="#" class="btn-outline"><i class="fas fa-code"></i> train_human.py</a>
+    </div>
 
-    <!-- ===== PROJECTS ===== -->
-    <h2 class="section-title">
-      <i class="fas fa-code-fork"></i> featured projects
-    </h2>
+    <div class="status-box">
+      <span class="status-dot"></span>
+      <span><strong>Open to hire</strong> · collaborations &amp; interesting AI projects</span>
+    </div>
 
-    <div class="projects-grid">
-      <!-- card 1 -->
-      <div class="project-card">
-        <div class="repo-header">
-          <i class="fas fa-book-open"></i>
-          <h3>astro‑dashboard</h3>
-        </div>
-        <p class="repo-desc">
-          Real‑time analytics dashboard built with Astro, Tailwind, and Chart.js. 
-          Lightweight, fast, and fully responsive.
-        </p>
-        <div class="repo-meta">
-          <span><i class="fas fa-star"></i> 78</span>
-          <span><i class="fas fa-code-branch"></i> 14</span>
-          <span>
-            <span class="lang-color" style="background:#3178c6;"></span> TypeScript
-          </span>
-        </div>
-        <div class="card-links">
-          <a href="#"><i class="fab fa-github"></i> repo</a>
-          <a href="#"><i class="fas fa-external-link-alt"></i> demo</a>
-        </div>
-      </div>
+    <div class="edu">
+      <i class="fas fa-graduation-cap"></i> B.Tech. CSE (Data Science) · 2022 – 2026 <span style="color:#6a7490; margin-left: 12px;">Expected: Apr 2026</span>
+    </div>
+  </header>
 
-      <!-- card 2 -->
-      <div class="project-card">
-        <div class="repo-header">
-          <i class="fas fa-terminal"></i>
-          <h3>git‑snap</h3>
-        </div>
-        <p class="repo-desc">
-          CLI tool to create lightweight, searchable snapshots of your Git repos. 
-          Saves disk space and speeds up backups.
-        </p>
-        <div class="repo-meta">
-          <span><i class="fas fa-star"></i> 43</span>
-          <span><i class="fas fa-code-branch"></i> 6</span>
-          <span>
-            <span class="lang-color" style="background:#a6128d;"></span> Rust
-          </span>
-        </div>
-        <div class="card-links">
-          <a href="#"><i class="fab fa-github"></i> repo</a>
-          <a href="#"><i class="fas fa-file-alt"></i> docs</a>
-        </div>
-      </div>
+  <!-- ===== PROJECTS ===== -->
+  <h2 class="section-title"><i class="fas fa-rocket"></i> Featured Projects</h2>
+  <div class="projects-grid">
 
-      <!-- card 3 -->
-      <div class="project-card">
-        <div class="repo-header">
-          <i class="fas fa-cloud-sun"></i>
-          <h3>weather‑pulse</h3>
-        </div>
-        <p class="repo-desc">
-          Minimal weather app with live radar, 7‑day forecast, and Air Quality Index. 
-          Built with React and OpenWeatherMap API.
-        </p>
-        <div class="repo-meta">
-          <span><i class="fas fa-star"></i> 112</span>
-          <span><i class="fas fa-code-branch"></i> 21</span>
-          <span>
-            <span class="lang-color" style="background:#61dafb;"></span> JavaScript
-          </span>
-        </div>
-        <div class="card-links">
-          <a href="#"><i class="fab fa-github"></i> repo</a>
-          <a href="#"><i class="fas fa-external-link-alt"></i> live</a>
-        </div>
-      </div>
-
-      <!-- card 4 -->
-      <div class="project-card">
-        <div class="repo-header">
-          <i class="fas fa-database"></i>
-          <h3>query‑kit</h3>
-        </div>
-        <p class="repo-desc">
-          Lightweight ORM for Node.js with native PostgreSQL support. 
-          Focus on type safety and performance.
-        </p>
-        <div class="repo-meta">
-          <span><i class="fas fa-star"></i> 27</span>
-          <span><i class="fas fa-code-branch"></i> 4</span>
-          <span>
-            <span class="lang-color" style="background:#3178c6;"></span> TypeScript
-          </span>
-        </div>
-        <div class="card-links">
-          <a href="#"><i class="fab fa-github"></i> repo</a>
-          <a href="#"><i class="fas fa-book"></i> guide</a>
-        </div>
+    <div class="project-card">
+      <div class="p-icon"><i class="fas fa-chart-line"></i></div>
+      <h3>Real-Time Sentiment Analysis Platform</h3>
+      <p>Microservices-based platform for real-time sentiment &amp; emotion analysis of social media streams, with live dashboards and hybrid AI models.</p>
+      <div class="project-tags">
+        <span>FastAPI</span><span>React</span><span>Kafka</span><span>PyTorch</span>
       </div>
     </div>
 
-    <!-- ===== SKILLS / TECH STACK ===== -->
-    <h2 class="section-title" style="margin-top: 3.2rem;">
-      <i class="fas fa-cog"></i> toolchain & skills
-    </h2>
-
-    <div class="skills-wrapper">
-      <span class="skill-tag"><i class="fab fa-js"></i> JavaScript</span>
-      <span class="skill-tag highlight"><i class="fab fa-react"></i> React</span>
-      <span class="skill-tag"><i class="fab fa-node"></i> Node.js</span>
-      <span class="skill-tag"><i class="fab fa-python"></i> Python</span>
-      <span class="skill-tag"><i class="fas fa-database"></i> PostgreSQL</span>
-      <span class="skill-tag"><i class="fab fa-docker"></i> Docker</span>
-      <span class="skill-tag"><i class="fas fa-cloud"></i> AWS</span>
-      <span class="skill-tag"><i class="fab fa-github"></i> GitHub Actions</span>
-      <span class="skill-tag"><i class="fas fa-code"></i> Rust</span>
-      <span class="skill-tag"><i class="fas fa-terminal"></i> Bash</span>
-    </div>
-
-    <!-- ===== PINNED / CONTRIBUTIONS (extra touch) ===== -->
-    <div style="margin-top: 2.8rem; display: flex; flex-wrap: wrap; gap: 1.5rem; background: #161b22; border-radius: 20px; padding: 1.5rem 2rem; border: 1px solid #30363d;">
-      <div style="display: flex; align-items: center; gap: 12px;">
-        <i class="fas fa-users" style="color: #58a6ff; font-size: 1.6rem;"></i>
-        <div>
-          <div style="font-size: 1.1rem; font-weight: 500;">open source</div>
-          <div style="color: #8b949e; font-size: 0.9rem;">contributor to 6+ projects</div>
-        </div>
-      </div>
-      <div style="display: flex; align-items: center; gap: 12px; margin-left: auto;">
-        <i class="fas fa-trophy" style="color: #e3b341; font-size: 1.6rem;"></i>
-        <div>
-          <div style="font-size: 1.1rem; font-weight: 500;">GitHub Stars</div>
-          <div style="color: #8b949e; font-size: 0.9rem;">280+ across repos</div>
-        </div>
+    <div class="project-card">
+      <div class="p-icon"><i class="fas fa-image"></i></div>
+      <h3>Multi-Modal Image Analysis &amp; Generation</h3>
+      <p>Full-stack web app for image captioning, VQA, object detection, and text-to-image generation with FastAPI backend and Next.js frontend.</p>
+      <div class="project-tags">
+        <span>Next.js</span><span>FastAPI</span><span>Diffusers</span><span>Hugging Face</span>
       </div>
     </div>
 
-    <!-- ===== FOOTER ===== -->
-    <div class="footer-note">
-      <i class="fas fa-code"></i> built with <i class="fas fa-heart" style="color: #da3633;"></i> · 
-      <i class="fab fa-github"></i> portfolio template · 2026
+    <div class="project-card">
+      <div class="p-icon"><i class="fas fa-flask"></i></div>
+      <h3>LLM Evaluation Framework</h3>
+      <p>Production-grade framework for evaluating LLM responses using NLP metrics, semantic similarity, RAG-specific metrics, and LLM-as-a-Judge.</p>
+      <div class="project-tags">
+        <span>LangChain</span><span>OpenAI</span><span>RAG</span><span>Weights &amp; Biases</span>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="p-icon"><i class="fas fa-gamepad"></i></div>
+      <h3>Atari DQN: Reinforcement Learning System</h3>
+      <p>Production-grade RL system for training AI agents to play Atari games using a robust MLOps pipeline with DQN and experience replay.</p>
+      <div class="project-tags">
+        <span>PyTorch</span><span>Gym</span><span>MLflow</span><span>Docker</span>
+      </div>
     </div>
   </div>
+
+  <!-- ===== EXPERIENCE ===== -->
+  <h2 class="section-title"><i class="fas fa-briefcase"></i> Experience</h2>
+  <div class="exp-list">
+    <div class="exp-item">
+      <div class="exp-left">
+        <div class="exp-title">AI/ML Developer Intern</div>
+        <div class="exp-org">Aegion Dynamic Solutions</div>
+      </div>
+      <div class="exp-date">October 2024 – Present</div>
+    </div>
+    <div class="exp-item">
+      <div class="exp-left">
+        <div class="exp-title">GenAI Intern</div>
+        <div class="exp-org">Growhut</div>
+      </div>
+      <div class="exp-date">Aug 2025 – Sep 2025</div>
+    </div>
+    <div class="exp-item">
+      <div class="exp-left">
+        <div class="exp-title">AI Agents Intern</div>
+        <div class="exp-org">Growstacks Inc</div>
+      </div>
+      <div class="exp-date">May 2025 – Aug 2025</div>
+    </div>
+    <div class="exp-item">
+      <div class="exp-left">
+        <div class="exp-title">Python Programming Intern</div>
+        <div class="exp-org">Technical Hub</div>
+      </div>
+      <div class="exp-date">August 2024 – November 2024</div>
+    </div>
+  </div>
+
+  <!-- ===== SKILLS ===== -->
+  <h2 class="section-title"><i class="fas fa-cog"></i> Toolchain &amp; Skills</h2>
+  <div class="skills-wrapper">
+    <span class="skill-tag"><i class="fab fa-python"></i> Python</span>
+    <span class="skill-tag highlight"><i class="fab fa-java"></i> Java</span>
+    <span class="skill-tag"><i class="fab fa-js"></i> JavaScript</span>
+    <span class="skill-tag"><i class="fab fa-js"></i> TypeScript</span>
+    <span class="skill-tag"><i class="fas fa-code"></i> C++</span>
+    <span class="skill-tag"><i class="fas fa-database"></i> SQL</span>
+    <span class="skill-tag"><i class="fas fa-link"></i> LangChain</span>
+    <span class="skill-tag"><i class="fas fa-project-diagram"></i> LangGraph</span>
+    <span class="skill-tag"><i class="fas fa-database"></i> LlamaIndex</span>
+    <span class="skill-tag"><i class="fas fa-brain"></i> Hugging Face</span>
+    <span class="skill-tag"><i class="fas fa-robot"></i> Transformers</span>
+    <span class="skill-tag"><i class="fas fa-fire"></i> PyTorch</span>
+    <span class="skill-tag"><i class="fas fa-users"></i> CrewAI</span>
+    <span class="skill-tag"><i class="fas fa-cube"></i> Ollama</span>
+    <span class="skill-tag"><i class="fas fa-cloud"></i> OpenAI</span>
+    <span class="skill-tag"><i class="fas fa-bolt"></i> FastAPI</span>
+    <span class="skill-tag"><i class="fab fa-react"></i> React</span>
+    <span class="skill-tag"><i class="fab fa-node"></i> Next.js</span>
+    <span class="skill-tag"><i class="fas fa-flask"></i> Flask</span>
+    <span class="skill-tag"><i class="fas fa-chart-simple"></i> Streamlit</span>
+    <span class="skill-tag"><i class="fas fa-table"></i> Pandas</span>
+    <span class="skill-tag"><i class="fab fa-docker"></i> Docker</span>
+    <span class="skill-tag"><i class="fab fa-git-alt"></i> Git</span>
+    <span class="skill-tag"><i class="fab fa-aws"></i> AWS</span>
+    <span class="skill-tag"><i class="fas fa-database"></i> PostgreSQL</span>
+    <span class="skill-tag"><i class="fas fa-memory"></i> Redis</span>
+    <span class="skill-tag"><i class="fas fa-project-diagram"></i> Neo4j</span>
+    <span class="skill-tag"><i class="fab fa-linux"></i> Linux</span>
+  </div>
+
+  <!-- ===== CTA ===== -->
+  <div class="cta-box">
+    <h2>Ready to build something extraordinary?</h2>
+    <p>Open for collaborations, freelance projects, or just a chat about AI and Systems.</p>
+    <a href="#" class="btn-primary"><i class="fas fa-envelope"></i> akhileshmalthi2299@gmail.com</a>
+  </div>
+
+  <!-- ===== FOOTER ===== -->
+  <div class="footer-note">
+    <i class="fas fa-code"></i> built with <i class="fas fa-heart" style="color: #4f7fff;"></i> · <i class="fab fa-github"></i> portfolio
+  </div>
+
+</div>
 </body>
 </html>
